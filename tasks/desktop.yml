@@ -1,12 +1,29 @@
 ---
+- name: Check if Google apt file exists
+  command: test -f {{ apt_file }}
+  register: google_apt_exists
+  ignore_errors: True
+
+- name: Add Google Chrome key
+  shell: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+  when: google_apt_exists.rc == 1
+
+- name: Add Google Chrome repo
+  copy: src=files/apt/google-chrome dest={{ apt_file }} owner=root group=root mode=644
+  when: google_apt_exists.rc == 1
+
+- name: Update apt cache
+  apt: update_cache=yes
+  when: google_apt_exists.rc == 1
+
+- name: Install Google Chrome
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - google-chrome-stable
+    - google-talkplugin
+
 - name: Install dwm
   command: aur dwm-cdown-git
-
-- name: Install Hangouts video plugin
-  command: aur google-talkplugin
-
-- name: Install Pepper Flash
-  command: aur chromium-pepper-flash
 
 - name: Install desktop utilities
   apt: name={{ item }} state=present
