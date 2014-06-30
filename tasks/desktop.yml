@@ -22,8 +22,18 @@
     - google-chrome-stable
     - google-talkplugin
 
+- name: Install dwm dependencies
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - libx11-dev
+    - libxinerama-dev
+    - sharutils
+
+- name: Update dwm
+  git: repo=git://github.com/cdown/dotfiles.git dest=/usr/src/dwm-cdown update=yes
+
 - name: Install dwm
-  command: aur dwm-cdown-git
+  command: make clean install chdir=/usr/src/dwm-cdown
 
 - name: Install desktop utilities
   apt: name={{ item }} state=present
