@@ -12,10 +12,9 @@
   pacman: name={{ item }} state=present
   with_items:
     - chromium
-    - dmenu
+    - suckless-tools
     - imagemagick
     - rxvt-unicode
-    - slock
 
 - name: Set up terminal fonts (Chris)
   pacman: name=terminus-font state=present

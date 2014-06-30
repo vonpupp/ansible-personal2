@@ -1,6 +1,6 @@
 ---
 - name: Install SSH daemon
-  pacman: name=openssh state=present
+pacman: name=openssh-server state=present
 
 - name: Enable SSH daemon
   service: name=sshd state=started enabled=yes
