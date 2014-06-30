@@ -4,3 +4,5 @@
   with_items:
     - fcitx
     - fcitx-sunpinyin
+    - fcitx-frontend-gtk3
+    - fcitx-ui-classic
