@@ -1,6 +1,6 @@
 ---
 - name: Install media applications
-  pacman: name={{ item }} state=present
+  apt: name={{ item }} state=present
   with_items:
     - mpv
     - mpd
@@ -8,4 +8,4 @@
   when: user == "chris"
 
 - name: Install mupdf
-  pacman: name=mupdf state=present
+  apt: name=mupdf state=present

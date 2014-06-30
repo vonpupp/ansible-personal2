@@ -1,6 +1,6 @@
 ---
 - name: Install tools that don't require Ansible configuration
-  pacman: name={{ item }} state=present
+  apt: name={{ item }} state=present
   with_items:
     - vim
     - unzip
@@ -9,7 +9,7 @@
     - gnome-icon-theme
 
 - name: Install extra tools if using Chris profile
-  pacman: name={{ item }} state=present
+  apt: name={{ item }} state=present
   with_items:
     - android-tools-adb
     - unrar
@@ -22,5 +22,5 @@
   when: user == "chris"
 
 - name: Install laptop tools
-  pacman: name=acpi state=present
+  apt: name=acpi state=present
   when: laptop
