@@ -24,7 +24,10 @@
   when: model == "XPS 8500"
 
 - name: Install VirtualBox guest utilities
-  apt: name=virtualbox-guest-utils state=present
+  apt: name={{ item }} state=present
+  with_items:
+    - virtualbox-guest-utils
+    - virtualbox-guest-x11
   when: model == "VirtualBox"
 
 - name: Set up autoloading of VirtualBox modules
