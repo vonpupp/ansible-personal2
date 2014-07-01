@@ -5,6 +5,7 @@
     - xserver-xorg
     - x11-xserver-utils
     - xinit
+    - dbus-x11
 
 - name: Blacklist nouveau Xorg driver
   kernel_blacklist: name=nouveau state=present
