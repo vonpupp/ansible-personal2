@@ -30,5 +30,9 @@
   when: model == "VirtualBox"
 
 - name: Set up autoloading of VirtualBox modules
-  copy: src=files/virtualbox/modules dest=/etc/modules-load.d/virtualbox-guest.conf
+  lineinfile: dest=/etc/modules line={{ item }}
+  with_items:
+    - vboxguest
+    - vboxsf
+    - vboxvideo
   when: model == "VirtualBox"
