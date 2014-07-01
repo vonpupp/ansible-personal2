@@ -26,6 +26,7 @@
   with_items:
     - virtualbox-guest-utils
     - virtualbox-guest-x11
+    - virtualbox-guest-dkms
   when: model == "VirtualBox"
 
 - name: Set up autoloading of VirtualBox modules
