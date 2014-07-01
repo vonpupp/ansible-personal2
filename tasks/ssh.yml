@@ -3,7 +3,7 @@
   apt: name=openssh-server state=present
 
 - name: Enable SSH daemon
-  service: name=sshd state=started enabled=yes
+  service: name=ssh state=started enabled=yes
 
 - name: Configure SSH daemon
   copy: src=files/sshd_config dest=/etc/ssh/sshd_config
