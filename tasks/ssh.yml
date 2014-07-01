@@ -1,6 +1,6 @@
 ---
 - name: Install SSH daemon
-apt: name=openssh-server state=present
+  apt: name=openssh-server state=present
 
 - name: Enable SSH daemon
   service: name=sshd state=started enabled=yes
