@@ -4,7 +4,18 @@
   when: not wifi
 
 - name: Install wireless tools
-  apt: name=wpa_supplicant state=present
+  apt: name={{ item }} state=present
+  with_items:
+    - wicd-curses
+    - wicd-daemon
+  when: wifi
+
+- name: Enable wicd
+  service: name=wicd state=started enabled=yes
+  when: wifi
+
+- name: Add local user to netdev
+  user: name={{ user }} groups=netdev append=yes
   when: wifi
 
 - name: Install dnsmasq for DNS caching
