@@ -2,7 +2,7 @@
 - name: Install media applications
   apt: name={{ item }} state=present
   with_items:
-    - mpv
+    - mplayer2
     - mpd
     - mpc
   when: user == "chris"
