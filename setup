@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 playbook_dir=$(mktemp -d)
 
@@ -11,8 +11,8 @@ EOF
 apt-get update
 apt-get install ansible python-passlib
 
-git clone https://github.com/cdown/ansible-personal.git "$playbook_dir"
-
 cd "$playbook_dir"
+
+curl -L https://github.com/cdown/ansible-personal/tarball/master | tar xz --strip-components 1
 
 ansible-playbook -v setup.yml
