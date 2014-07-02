@@ -40,7 +40,7 @@
   with_items:
     - suckless-tools
     - imagemagick
-    - rxvt-unicode
+    - rxvt-unicode-256color
 
 - name: Set up terminal fonts (Chris)
   apt: name=xfonts-terminus state=present
