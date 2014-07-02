@@ -2,12 +2,11 @@
 
 playbook_dir=$(mktemp -d)
 backports_list=/etc/apt/sources.list.d/wheezy-backports.list
-packages=(ansible python-passlib)
+packages=(ansible python-passlib git)
 
 cleanup() {
     rm -rf "$playbook_dir" "$backports_list"
     apt-get update
-    apt-get -y purge "${packages[@]}"
 }
 
 trap cleanup 0
