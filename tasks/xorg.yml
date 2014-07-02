@@ -1,34 +1,39 @@
 ---
 - name: Install Xorg base
-  pacman: name={{ item }} state=present
+  apt: name={{ item }} state=present
   with_items:
-    - xorg-server
-    - xorg-xrandr
-    - xorg-xinit
-    - xorg-xset
+    - xserver-xorg
+    - x11-xserver-utils
+    - xinit
+    - dbus-x11
 
 - name: Blacklist nouveau Xorg driver
   kernel_blacklist: name=nouveau state=present
-  when: model == "Vostro 3700" or model == "XPS 8500"
+  when: model == "Vostro 3700"
 
 - name: Set up Xorg for Vostro 3700
-  pacman: name={{ item }} state=present
+  apt: name={{ item }} state=present
   with_items:
-    - xf86-video-intel
-    - xf86-input-synaptics
+    - xserver-xorg-video-intel
+    - xserver-xorg-input-synaptics
   when: model == "Vostro 3700"
 
 - name: Set up Xorg for XPS 8500
-  pacman: name={{ item }} state=present
-  with_items:
-    - nvidia
-    - nvidia-utils
+  apt: name=xserver-xorg-video-nouveau state=present
   when: model == "XPS 8500"
 
 - name: Install VirtualBox guest utilities
-  pacman: name=virtualbox-guest-utils state=present
+  apt: name={{ item }} state=present
+  with_items:
+    - virtualbox-guest-utils
+    - virtualbox-guest-x11
+    - virtualbox-guest-dkms
   when: model == "VirtualBox"
 
 - name: Set up autoloading of VirtualBox modules
-  copy: src=files/virtualbox/modules dest=/etc/modules-load.d/virtualbox-guest.conf
+  lineinfile: dest=/etc/modules line={{ item }}
+  with_items:
+    - vboxguest
+    - vboxsf
+    - vboxvideo
   when: model == "VirtualBox"

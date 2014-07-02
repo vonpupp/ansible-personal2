@@ -15,15 +15,13 @@
   vars_files:
     - vars/{{ config_file }}.yml
 
+  vars:
+    - apt_file: /etc/apt/sources.list.d/google-chrome.list
+
   tasks:
-    - name: Get size of long to determine architecture
-      command: getconf LONG_BIT
-      register: long_bit
-    - include: tasks/pacman.yml
     - include: tasks/network.yml
     - include: tasks/ssh.yml
     - include: tasks/users.yml
-    - include: tasks/aur.yml
     - include: tasks/zsh.yml
     - include: tasks/sudo.yml
     - include: tasks/ntp.yml
@@ -32,7 +30,6 @@
     - include: tasks/blacklist-pc-speaker.yml
     - include: tasks/desktop.yml
     - include: tasks/basic-tools.yml
-    - include: tasks/cron.yml
     - include: tasks/email.yml
     - include: tasks/media.yml
     - include: tasks/chinese.yml

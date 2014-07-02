@@ -1,14 +1,21 @@
 ---
-- name: Automatically get DHCP lease
-  service: name=dhcpcd state=started enabled=yes
-  when: not wifi
-
 - name: Install wireless tools
-  pacman: name=wpa_supplicant state=present
+  apt: name={{ item }} state=present
+  with_items:
+    - wicd-curses
+    - wicd-daemon
+  when: wifi
+
+- name: Enable wicd
+  service: name=wicd state=started enabled=yes
+  when: wifi
+
+- name: Add local user to netdev
+  user: name={{ user }} groups=netdev append=yes
   when: wifi
 
 - name: Install dnsmasq for DNS caching
-  pacman: name=dnsmasq state=present
+  apt: name=dnsmasq state=present
 
 - name: Set up DNS caching
   copy: src=files/network/dnsmasq.conf dest=/etc/dnsmasq.conf

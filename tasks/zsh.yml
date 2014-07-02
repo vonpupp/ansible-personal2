@@ -1,6 +1,6 @@
 ---
 - name: Install zsh
-  pacman: name=zsh state=present
+  apt: name=zsh state=present
 
 - name: Set shell for {{ user }} to zsh
   user: name={{ user }} shell=/bin/zsh
