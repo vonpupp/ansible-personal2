@@ -13,6 +13,6 @@ apt-get install ansible python-passlib
 
 cd "$playbook_dir"
 
-curl -L https://github.com/cdown/ansible-personal/tarball/master | tar xz --strip-components 1
+wget -qO- https://github.com/cdown/ansible-personal/tarball/master | tar xvz --strip-components 1
 
 ansible-playbook -v setup.yml
