@@ -31,6 +31,7 @@
 - name: Install dwm dependencies
   apt: pkg={{ item }} state=installed
   with_items:
+    - build-essential
     - libx11-dev
     - libxinerama-dev
     - sharutils
