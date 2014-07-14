@@ -16,6 +16,12 @@
   apt: update_cache=yes
   when: google_apt_exists.rc == 1
 
+- name: Work around XDG "no writable system icon directory found" bug
+  file: path={{ item }} state=directory
+  with_items:
+    - /usr/share/desktop-directories
+    - /usr/share/icons/hicolor
+
 - name: Install Google Chrome
   apt: pkg={{ item }} state=installed
   with_items:
