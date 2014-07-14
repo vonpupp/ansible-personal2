@@ -39,7 +39,7 @@
   git: repo=git://github.com/cdown/dwm.git dest=/usr/src/dwm-cdown update=yes
 
 - name: Install dwm
-  command: make clean install chdir=/usr/src/dwm-cdown
+  command: chdir=/usr/src/dwm-cdown make clean install
 
 - name: Install desktop utilities
   apt: name={{ item }} state=present
