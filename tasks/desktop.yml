@@ -51,7 +51,6 @@
 
 - name: Set up terminal fonts (Chris)
   apt: name=xfonts-terminus state=present
-  when: user == "chris"
 
 - name: Set up terminal fonts (Lin)
   apt: name=fonts-inconsolata state=present
