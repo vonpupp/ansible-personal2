@@ -8,6 +8,7 @@
     - tmux
     - gnome-icon-theme
     - build-essential
+    - curl
 
 - name: Install extra tools if using Chris profile
   apt: name={{ item }} state=present
