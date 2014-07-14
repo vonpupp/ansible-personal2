@@ -1,12 +1,4 @@
 ---
-- name: Install Xorg base
-  apt: name={{ item }} state=present
-  with_items:
-    - xserver-xorg
-    - x11-xserver-utils
-    - xinit
-    - dbus-x11
-
 - name: Blacklist nouveau Xorg driver
   kernel_blacklist: name=nouveau state=present
   when: model == "Vostro 3700"
@@ -37,3 +29,11 @@
     - vboxsf
     - vboxvideo
   when: model == "VirtualBox"
+
+- name: Install Xorg base
+  apt: name={{ item }} state=present
+  with_items:
+    - xserver-xorg
+    - x11-xserver-utils
+    - xinit
+    - dbus-x11
