@@ -9,6 +9,7 @@
     - gnome-icon-theme
     - build-essential
     - curl
+    - autossh
 
 - name: Install extra tools if using Chris profile
   apt: name={{ item }} state=present
@@ -20,7 +21,6 @@
     - nmap
     - git
     - lsof
-    - autossh
   when: user == "chris"
 
 - name: Install laptop tools
