@@ -19,6 +19,7 @@
     - apt_file: /etc/apt/sources.list.d/google-chrome.list
 
   tasks:
+    - include: tasks/apt.yml
     - include: tasks/network.yml
     - include: tasks/ssh.yml
     - include: tasks/users.yml
