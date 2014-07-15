@@ -7,5 +7,5 @@
     - mpc
   when: user == "chris"
 
-- name: Install mupdf
-  apt: name=mupdf state=present
+- name: Install zathura
+  apt: name=zathura state=present
