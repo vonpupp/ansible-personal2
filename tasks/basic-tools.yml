@@ -23,6 +23,9 @@
     - lsof
   when: user == "chris"
 
+- name: Install extra tools if using Lin profile
+  apt: name=libreoffice state=present
+
 - name: Install laptop tools
   apt: name=acpi state=present
   when: laptop
