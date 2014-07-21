@@ -25,6 +25,7 @@
 
 - name: Install extra tools if using Lin profile
   apt: name=libreoffice state=present
+  when: user == "lin"
 
 - name: Install laptop tools
   apt: name=acpi state=present
