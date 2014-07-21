@@ -12,7 +12,7 @@ cleanup() {
 trap cleanup 0
 
 cat > "$backports_list" << 'EOF'
-deb http://ftp.jp.debian.org/debian wheezy-backports main
+deb http://ftp.uk.debian.org/debian wheezy-backports main
 EOF
 
 apt-get update
