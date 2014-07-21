@@ -15,9 +15,6 @@
   vars_files:
     - vars/{{ config_file }}.yml
 
-  vars:
-    - apt_file: /etc/apt/sources.list.d/google-chrome.list
-
   tasks:
     - include: tasks/apt.yml
     - include: tasks/network.yml
