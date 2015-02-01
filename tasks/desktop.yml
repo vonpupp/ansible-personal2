@@ -1,12 +1,12 @@
 ---
 - name: Install dwm
-  command: yaourt -S dwm-cdown-git
+  command: yaourt --noconfirm -S dwm-cdown-git
 
 - name: Install Hangouts video plugin
-  command: yaourt -S google-talkplugin
+  command: yaourt --noconfirm -S google-talkplugin
 
 - name: Install Google Chrome
-  command: yaourt -S google-chrome
+  command: yaourt --noconfirm -S google-chrome
 
 - name: Install desktop utilities
   pacman: name={{ item }} state=present
@@ -22,7 +22,7 @@
   when: user == "chris"
 
 - name: Install urxvt Perl extensions
-  command: yaourt -S urxvt-perls
+  command: yaourt --noconfirm -S urxvt-perls
 
 - name: Set up terminal fonts (Chris)
   pacman: name=terminus-font state=present

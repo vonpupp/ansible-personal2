@@ -27,7 +27,7 @@
   when: user == "chris"
 
 - name: Install yturl if using Chris profile
-  command: yaourt -S yturl
+  command: yaourt --noconfirm -S yturl
   when: "user == 'chris'"
 
 - name: Install extra tools if using Lin profile

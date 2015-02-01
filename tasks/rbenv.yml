@@ -1,6 +1,6 @@
 ---
 - name: Install rbenv
-  command: 'yaourt -S {{ item }}'
+  command: 'yaourt --noconfirm -S {{ item }}'
   with_items:
     - rbenv
     - ruby-build
