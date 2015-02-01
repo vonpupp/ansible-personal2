@@ -16,7 +16,7 @@ cd "$pkg"
 
 chown -R nobody "$temp"
 sudo -u nobody makepkg
-pacman -U *.pkg.tar.xz
+pacman --noconfirm -U *.pkg.tar.xz
 
 cd /
 
