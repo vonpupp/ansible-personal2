@@ -28,6 +28,8 @@
 
 - name: Install yturl if using Chris profile
   command: yaourt --noconfirm -S yturl
+  sudo: yes
+  sudo_user: makepkg
   when: "user == 'chris'"
 
 - name: Install extra tools if using Lin profile
