@@ -1,12 +1,12 @@
 ---
 - name: Install dwm
-  packer: name=dwm-cdown-git state=present
+  command: yaourt -S dwm-cdown-git
 
 - name: Install Hangouts video plugin
-  packer: name=google-talkplugin state=present
+  command: yaourt -S google-talkplugin
 
 - name: Install Google Chrome
-  packer: name=google-chrome state=present
+  command: yaourt -S google-chrome
 
 - name: Install desktop utilities
   pacman: name={{ item }} state=present
@@ -22,7 +22,7 @@
   when: user == "chris"
 
 - name: Install urxvt Perl extensions
-  packer: name=urxvt-perls state=present
+  command: yaourt -S urxvt-perls
 
 - name: Set up terminal fonts (Chris)
   pacman: name=terminus-font state=present

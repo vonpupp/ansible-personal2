@@ -27,7 +27,7 @@
   when: user == "chris"
 
 - name: Install yturl if using Chris profile
-  packer: name=yturl state=present
+  command: yaourt -S yturl
   when: "user == 'chris'"
 
 - name: Install extra tools if using Lin profile

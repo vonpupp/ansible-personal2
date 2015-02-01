@@ -1,6 +1,6 @@
 ---
 - name: Install rbenv
-  packer: name={{ item }} state=present
+  command: 'yaourt -S {{ item }}'
   with_items:
     - rbenv
     - ruby-build
