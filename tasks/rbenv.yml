@@ -1,6 +1,6 @@
 ---
 - name: Install rbenv
-  command: aur {{ item }}
+  packer: name={{ item }} state=present
   with_items:
     - rbenv
     - ruby-build
