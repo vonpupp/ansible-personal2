@@ -1,4 +1,6 @@
 ---
+- debug: 'msg={{ user }}'
+
 - name: Clone Chris' dotfiles for {{ user }}
   sudo: yes
   sudo_user: "{{ user }}"
