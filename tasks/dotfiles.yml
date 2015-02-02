@@ -1,6 +1,4 @@
 ---
-- debug: 'msg={{ user }}'
-
 - name: Clone Chris' dotfiles for {{ user }}
   sudo: yes
   sudo_user: "{{ user }}"
@@ -12,12 +10,10 @@
   sudo: yes
   sudo_user: "{{ user }}"
   git: repo=git://github.com/cdown/dotfiles.git dest=~{{ user }}/git/dotfiles accept_hostkey=yes version=lin
-  register: dotfiles_clone
   when: user == "lin"
 
 - name: Clone Chris' dotfiles for root
   git: repo=git://github.com/cdown/dotfiles.git dest=~root/git/dotfiles accept_hostkey=yes
-  register: dotfiles_clone_root
   when: user == "chris"
 
 - name: Clone Lin's dotfiles for root
@@ -29,8 +25,6 @@
   sudo: yes
   sudo_user: "{{ user }}"
   command: ./setup chdir="~{{ user }}/git/dotfiles"
-  when: dotfiles_clone.changed
 
 - name: Set up dotfiles for root
   command: ./setup chdir="~root/git/dotfiles"
-  when: dotfiles_clone_root.changed
