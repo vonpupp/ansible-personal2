@@ -2,11 +2,11 @@
 ansible_python_interpreter: /usr/bin/python2
 
 users:
-  - chris
+  - afu
   - lin
 
 users_inc_super:
-  - chris
+  - afu
   - lin
   - root
 
