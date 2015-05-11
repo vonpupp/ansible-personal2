@@ -24,6 +24,7 @@
     - xscreensaver
     - wmname
     - xterm
+    - xclip
   sudo: yes
   sudo_user: "{{ ansible_user_id }}"
 

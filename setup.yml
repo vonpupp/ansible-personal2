@@ -10,6 +10,9 @@
 - hosts: localhost
   connection: local
 
+  vars_files:
+    - vars/main.yml
+
   tasks:
     - name: Get size of long to determine architecture
       command: getconf LONG_BIT
@@ -24,15 +27,17 @@
 
     # Service related
     #- include: tasks/pacman.yml
-    - include: tasks/aur.yml
-    - include: tasks/ntp.yml
-    - include: tasks/network-wired.yml
-    - include: tasks/network-wifi.yml
+    #- include: tasks/aur.yml
+    #- include: tasks/ntp.yml
+    #- include: tasks/network-wired.yml
+    #- include: tasks/network-wifi.yml
     #- include: tasks/ssh.yml
 
     # Packages
     #- include: tasks/cui.yml
-    #- include: tasks/base-devel-packages.yml
-    - include: tasks/gui.yml
+    #- include: tasks/devel-python.yml
+    #- include: tasks/gui.yml
+
+    - include: tasks/cron.yml
     #- include: tasks/xorg-virtualbox.yml
     #- include: tasks/zsh.yml

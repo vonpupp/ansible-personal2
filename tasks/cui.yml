@@ -1,78 +1,83 @@
 # Missing:
 # exuberant-ctags
 # fasd
-# fortune 
-# gcalcli 
-# gnupg-agent 
-# kpcli 
-# lm-sensors 
-# spell-pt 
+# fortune
+# gcalcli
+# kpcli
+# lm-sensors
+# spell-pt
 # alsamixer
 
 - name: install utilities
   pacman: name={{ item }} state=present
   with_items:
-  - abook 
-  - ack 
-  - alsa-utils 
-  - aria2 
-  - aspell 
-  - aspell-en 
-  - aspell-es 
-  - aspell-fr 
-  - aspell-it 
-  - autoconf 
-  - autofs 
-  - bc 
-  - bitlbee 
-  - cmake 
-  - colordiff 
-  - curl 
-  - dosfstools 
-  - elinks 
-  - git 
-  - gnupg
-  - gparted 
-  - htop 
-  - iftop 
-  - imagemagick 
-  - iptraf-ng 
-  - irssi 
-  - ispell 
-  - isync 
-  - lftp 
-  - mc 
-  - mpd 
-  - mutt
-  - nodejs
-  - notmuch
-  - ncmpcpp 
-  - newsbeuter
-  - nfs-utils
-  - nmap
-  - ntfsprogs
-  - ntp
-  - parted 
-  - pinentry
-  - polipo 
-  - pulseaudio 
-  - pydf 
-  - python2
-  - python2-pip
-  - rtorrent 
-  - ranger 
-  - rsync 
-  - scrot 
-  - screen 
-  - sudo 
-  - task 
-  - tmux 
-  - tree 
-  - unrar 
-  - unzip 
-  - vim
-  - wicd
-  - zsh 
-  - zsh-syntax-highlighting 
+    - atop
+    - abook
+    - ack
+    - alsa-utils
+    - aria2
+    - aspell
+    - aspell-en
+    - aspell-es
+    - aspell-fr
+    - aspell-it
+    - autoconf
+    - autofs
+    - bc
+    - bitlbee
+    - cmake
+    - colordiff
+    - curl
+    - dosfstools
+    - elinks
+    - git
+    - lsof
+    - gnupg
+    - gparted
+    - htop
+    - dnsutils
+    - iftop
+    - imagemagick
+    - iptraf-ng
+    - irssi
+    - ispell
+    - isync
+    - lftp
+    - mc
+    - mpd
+    - mutt
+    - ncmpcpp
+    - newsbeuter
+    - nfs-utils
+    - nmap
+    - nodejs
+    - notmuch
+    - ntfsprogs
+    - ntp
+    - p7zip
+    - parted
+    - perl-datetime
+    - perl-image-exiftool
+    - pinentry
+    - polipo
+    - pulseaudio
+    - pydf
+    - python2
+    - python2-pip
+    - ranger
+    - rsync
+    - rtorrent
+    - screen
+    - scrot
+    - sudo
+    - task
+    - tmux
+    - tree
+    - unrar
+    - unzip
+    - vim
+    - wicd
+    - zsh
+    - zsh-syntax-highlighting
   sudo: true
   sudo_user: "{{ ansible_user_id }}"
