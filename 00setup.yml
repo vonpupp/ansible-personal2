@@ -1,14 +1,22 @@
+  #vars_prompt:
+  #  - name: config_file
+  #    prompt: "Which vars should I load?"
+  #    private: no
+
+  # vars_files:
+  #  - vars/{{ config_file }}.yml
+
 ---
 - hosts: localhost
   connection: local
 
-  vars_prompt:
-    - name: config_file
-      prompt: "Which vars should I load?"
-      private: no
+  vars:
+    users:
+      - afu
 
-  vars_files:
-    - vars/{{ config_file }}.yml
+    users_inc_super:
+      - afu
+      - root
 
   tasks:
     - name: Get size of long to determine architecture
@@ -22,9 +30,12 @@
       register: installed_packages
       changed_when: false
 
-    - include: tasks/aur.yml
+    # Vagrant like environment
     - include: tasks/sudo.yml
-    - include: tasks/network.yml
-    - include: tasks/pacman.yml
     - include: tasks/users.yml
+
+    # Root configs
+    - include: tasks/network-wired.yml
+    - include: tasks/pacman.yml
+    - include: tasks/aur.yml
     - include: tasks/ntp.yml

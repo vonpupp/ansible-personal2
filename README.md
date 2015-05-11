@@ -11,3 +11,9 @@ generate the password at the password prompt.
 ## Usage
 
     ansible-playbook -i localhost, setup.yml
+
+## Inspiration
+
+https://github.com/cdown/ansible-personal
+https://github.com/augustl/ansible-playbooks
+https://github.com/resmo/ansible-role-sshd

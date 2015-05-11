@@ -1,14 +1,14 @@
+  #vars_prompt:
+  #  - name: config_file
+  #    prompt: "Which vars should I load?"
+  #    private: no
+
+  # vars_files:
+  #  - vars/{{ config_file }}.yml
+
 ---
 - hosts: localhost
   connection: local
-
-  vars_prompt:
-    - name: config_file
-      prompt: "Which vars should I load?"
-      private: no
-
-  vars_files:
-    - vars/{{ config_file }}.yml
 
   tasks:
     - name: Get size of long to determine architecture
@@ -22,30 +22,17 @@
       register: installed_packages
       changed_when: false
 
-    - include: tasks/pacman.yml
-    - include: tasks/network.yml
-    - include: tasks/ssh.yml
-    - include: tasks/zsh.yml
-    - include: tasks/users.yml
+    # Service related
+    #- include: tasks/pacman.yml
     - include: tasks/aur.yml
-    - include: tasks/sudo.yml
     - include: tasks/ntp.yml
-    - include: tasks/fonts.yml
-    - include: tasks/xorg.yml
-    - include: tasks/blacklist-pc-speaker.yml
-    - include: tasks/desktop.yml
-    - include: tasks/basic-tools.yml
-    - include: tasks/cron.yml
-    - include: tasks/systemd.yml
-    - include: tasks/email.yml
-    - include: tasks/media.yml
-    - include: tasks/chinese.yml
-    - include: tasks/dotfiles.yml user=root
-    - include: tasks/dotfiles.yml user=chris
-    - include: tasks/dotfiles.yml user=lin
-    - include: tasks/rbenv.yml user=chris
-    - include: tasks/shared.yml
-      when: model == "VirtualBox"
-    - include: tasks/pkgfile.yml
-    - include: tasks/lin-dev.yml
-      when: install_lin_dev
+    - include: tasks/network-wired.yml
+    - include: tasks/network-wifi.yml
+    #- include: tasks/ssh.yml
+
+    # Packages
+    #- include: tasks/cui.yml
+    #- include: tasks/base-devel-packages.yml
+    - include: tasks/gui.yml
+    #- include: tasks/xorg-virtualbox.yml
+    #- include: tasks/zsh.yml

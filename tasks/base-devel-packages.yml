@@ -1,0 +1,52 @@
+# Missing:
+# compton 
+# kbdd 
+# udisks-glue 
+# xpdf 
+
+- name: install utilities
+  pacman: name={{ item }} state=present
+  with_items:
+  - base-devel
+  - python2
+  - python2-pip
+  # XORG
+  - xorg-server
+  - xorg-server-utils
+  - xorg-server-xephyr 
+  - xorg-xinit
+  - awesome
+  - xscreensaver 
+  - slim 
+  - wmname 
+  # X11 APPS
+  - feh 
+  - firefox
+  - keepassx 
+  - libreoffice 
+  - lilyterm 
+  - mkvtoolnix
+  - pcmanfm 
+  - qmmp 
+  - seahorse 
+  - shotwell
+  - vlc 
+  - wicd-gtk
+  - wmctrl 
+  - zathura 
+  - zathura-pdf-poppler 
+  sudo: true
+
+#i3-wm
+#i3status
+#dmenu
+#mesa-libgl
+#ttf-inconsolata
+#bdf-unifont
+#ttf-dejavu
+#ttf-freefont
+#ttf-bitstream-vera
+#ttf-liberation
+#xfce4-terminal
+#gtk-engines
+#gnome-keyring
